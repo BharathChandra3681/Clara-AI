@@ -1,0 +1,54 @@
+version: "3.8"
+
+services:
+  # ── n8n workflow orchestrator ─────────────────────────────────────────────
+  n8n:
+    image: n8nio/n8n:latest
+    container_name: clara-n8n
+    restart: unless-stopped
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_BASIC_AUTH_ACTIVE=false
+      - N8N_HOST=localhost
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=http
+      - WEBHOOK_URL=http://localhost:5678/
+      - GENERIC_TIMEZONE=America/New_York
+      - N8N_DIAGNOSTICS_ENABLED=false
+      - N8N_VERSION_NOTIFICATIONS_ENABLED=false
+      # Optional: pass through Anthropic key for LLM extraction
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+    volumes:
+      - n8n_data:/home/node/.n8n
+      # Mount dataset and outputs so n8n can read/write them
+      - ./dataset:/data/dataset:ro
+      - ./outputs:/data/outputs
+    networks:
+      - clara-net
+
+  # ── Clara Python API server ───────────────────────────────────────────────
+  clara-api:
+    image: python:3.11-slim
+    container_name: clara-api
+    restart: unless-stopped
+    ports:
+      - "5001:5001"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./scripts:/app/scripts
+      - ./dataset:/app/dataset:ro
+      - ./outputs:/app/outputs
+    working_dir: /app
+    command: python scripts/api_server.py --port 5001
+    networks:
+      - clara-net
+
+volumes:
+  n8n_data:
+
+networks:
+  clara-net:
+    driver: bridge

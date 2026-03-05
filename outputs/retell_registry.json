@@ -1,0 +1,42 @@
+{
+  "ACC001": {
+    "account_id": "ACC001",
+    "agent_id": "agent_146c239e99bf6ece4b3ce9c623",
+    "llm_id": "llm_20d89d7a41888aed43b5a5e2aa8c",
+    "version": "v2",
+    "agent_name": "Clara \u2013 Hendricks Fire Protection",
+    "synced_at": "2026-03-05T06:43:02.274979+00:00"
+  },
+  "ACC002": {
+    "account_id": "ACC002",
+    "agent_id": "agent_98f9ecc1132fe18b1a103de004",
+    "llm_id": "llm_791e31ca4da7e693ced8611a094d",
+    "version": "v2",
+    "agent_name": "Clara \u2013 ArcticPro HVAC Services",
+    "synced_at": "2026-03-05T06:43:03.812507+00:00"
+  },
+  "ACC003": {
+    "account_id": "ACC003",
+    "agent_id": "agent_d7f198d90415463168da066fe1",
+    "llm_id": "llm_81b2d66e537548075f8fbb9b0284",
+    "version": "v2",
+    "agent_name": "Clara \u2013 Voltline Electrical Contractors",
+    "synced_at": "2026-03-05T06:43:05.316381+00:00"
+  },
+  "ACC004": {
+    "account_id": "ACC004",
+    "agent_id": "agent_ebcdd687c1202fcdcdc820ccb1",
+    "llm_id": "llm_ae0cb1c7e77c691c466c35ec2155",
+    "version": "v2",
+    "agent_name": "Clara \u2013 ShieldGuard Alarm Systems",
+    "synced_at": "2026-03-05T06:43:06.786370+00:00"
+  },
+  "ACC005": {
+    "account_id": "ACC005",
+    "agent_id": "agent_8836afb7b07dafcd3bd13478c7",
+    "llm_id": "llm_ad760342b2f3aca588b8ce793d07",
+    "version": "v2",
+    "agent_name": "Clara \u2013 Sternfeld Mechanical",
+    "synced_at": "2026-03-05T06:43:08.250742+00:00"
+  }
+}

@@ -74,68 +74,85 @@ python scripts/run_pipeline.py --dataset_dir ./dataset
 
 ---
 
-## Plugging In Your Dataset
+## Adding New Accounts (Audio Ingest)
 
-### Option A: Directory structure (auto-discovery)
+Drop audio or video call recordings into the `clara_calls/` folder and the pipeline handles everything automatically — transcription, extraction, agent spec generation, and Retell sync.
 
-```
-dataset/
-  YOUR_ACCOUNT_ID/
-    demo_transcript.txt
-    onboarding_transcript.txt   ← optional
-```
-
-### Option B: Manifest file
-
-Edit `dataset/manifest.json`:
-
-```json
-[
-  {
-    "account_id": "CLIENT001",
-    "demo_transcript": "CLIENT001/demo.txt",
-    "onboarding_transcript": "CLIENT001/onboarding.txt"
-  }
-]
-```
-
-Then run:
+### Setup (one-time)
 
 ```bash
-python scripts/run_demo.py
-# or with LLM:
-python scripts/run_pipeline.py --dataset_dir ./dataset
-```
-
-### Transcript format
-
-Plain text `.txt` files. No special format required.
-
-### Option C: Audio/Video files (auto-transcribe + process)
-
-Drop audio or video recordings directly — the ingest script handles transcription automatically.
-
-```bash
-# One-time setup
 pip install openai-whisper
+```
 
-# Single file
-python scripts/ingest.py --file recording.m4a --account_id BEN001 --stage demo
+### File Naming Convention
 
-# Folder watcher (auto-processes any new file dropped in)
+The filename tells the pipeline which account to process and which stage to run. Format: `ACCOUNTID_STAGE.extension`
+
+| Filename | Account | Stage | What Happens |
+|---|---|---|---|
+| `BEN001_demo.m4a` | BEN001 | demo | Pipeline A: transcribe → extract memo (v1) → generate agent spec (v1) |
+| `BEN001_onboarding.m4a` | BEN001 | onboarding | Pipeline B: transcribe → patch memo (v2) → generate spec (v2) → changelog |
+| `ACC002_demo.mp4` | ACC002 | demo | Pipeline A for ACC002 |
+| `ACC002_onboarding.wav` | ACC002 | onboarding | Pipeline B for ACC002 |
+
+- `ACCOUNTID` = any alphanumeric ID (e.g. `BEN001`, `CLIENT042`)
+- `STAGE` = `demo` (first call) or `onboarding` (follow-up call)
+- Demo must be processed before onboarding for each account
+- Supported audio/video formats: `.m4a`, `.mp3`, `.mp4`, `.wav`, `.ogg`, `.flac`, `.webm`
+
+### How to Use
+
+**Option 1: Folder watcher (recommended)**
+
+Start the watcher once, then drop files in anytime:
+
+```bash
+export $(cat .env | grep -v '#' | xargs)
 python scripts/ingest.py --watch ./clara_calls/ --sync-retell
 ```
 
-**File naming convention** for the folder watcher:
-```
-BEN001_demo.m4a           → Pipeline A (demo) for account BEN001
-BEN001_onboarding.m4a     → Pipeline B (onboarding) for account BEN001
-ACC002_demo.mp4           → Pipeline A for account ACC002
+Then just download a call recording, rename it (e.g. `BEN001_demo.m4a`), and move it into `clara_calls/`. The watcher picks it up within 3 seconds and runs the full pipeline automatically.
+
+**Option 2: Single file**
+
+Process one file directly without the watcher:
+
+```bash
+python scripts/ingest.py --file path/to/recording.m4a --account_id BEN001 --stage demo
+python scripts/ingest.py --file path/to/recording.m4a --account_id BEN001 --stage onboarding --sync-retell
 ```
 
-The watcher auto-detects the account ID and stage from the filename, transcribes with Whisper, runs the full pipeline, and optionally syncs to Retell.
+### Pipeline Processing Flow
 
-Supported formats: `.m4a`, `.mp3`, `.mp4`, `.wav`, `.ogg`, `.flac`, `.webm`
+```
+1. File dropped in clara_calls/
+   ↓
+2. Whisper transcribes audio → saves transcript to dataset/ACCOUNTID/demo_transcript.txt
+   ↓
+3. Pipeline A (demo) or Pipeline B (onboarding) runs:
+   - Extracts structured account memo (company, services, contacts, routing rules)
+   - Generates Retell agent spec (system prompt, voice config, tools)
+   - If onboarding: diffs v1 → v2 and writes changelog
+   ↓
+4. If --sync-retell: pushes agent to Retell AI via API
+   ↓
+5. Dashboard auto-rebuilds with new account data
+```
+
+### Whisper Model Options
+
+Use `--model` to trade speed for accuracy:
+
+| Model | Speed | Accuracy | Best For |
+|---|---|---|---|
+| `tiny` | fastest | lower | quick tests |
+| `base` (default) | fast | good | most recordings |
+| `small` | moderate | better | noisy audio |
+| `medium` | slow | best | long or complex calls |
+
+```bash
+python scripts/ingest.py --watch ./clara_calls/ --model small --sync-retell
+```
 
 ---
 

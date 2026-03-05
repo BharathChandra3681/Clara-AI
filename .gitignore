@@ -11,3 +11,6 @@ __pycache__/
 
 # Misc
 {workflows,scripts,outputs/
+
+# Audio/video drop folder
+clara_calls/

@@ -1,0 +1,91 @@
+ONBOARDING CALL TRANSCRIPT
+Account: ACC001
+Date: 2024-01-28
+Participants: Clara Onboarding Specialist, Mike Hendricks (Office Manager), Dave Kowalski (Lead Dispatcher) - Hendricks Fire Protection
+
+---
+
+Onboarding Specialist: Thanks for getting on with us today, Mike, and Dave too. Let's make sure we get everything locked in so we can get Clara fully configured. Let me start with the basics and we'll work through the routing logic.
+
+Mike: Sounds good. Dave knows more of the dispatch side so good that he's on too.
+
+Onboarding Specialist: Great. So confirming your business hours — seven AM to five PM, Monday through Friday, Central time?
+
+Mike: Yes, that's correct. We're actually closed on federal holidays too but I don't know if that matters.
+
+Onboarding Specialist: We'll note it. For the on-call line — you mentioned in the demo you didn't have the number handy. Can you give that to us now?
+
+Dave: Yeah the on-call cell is 214-555-0147. That's the number we rotate. Whoever is on call that week keeps that phone.
+
+Onboarding Specialist: Perfect. And is there a backup number if that one doesn't answer?
+
+Dave: Yeah, try my direct line second. That's 214-555-0193. I'm the lead dispatcher so I'll always pick up emergencies.
+
+Onboarding Specialist: Got it. And if both of those fail?
+
+Dave: Then we've got a problem, but tell the customer someone will call back within fifteen minutes. That's our internal SLA.
+
+Onboarding Specialist: Understood. What's the transfer timeout you want before trying the next number?
+
+Dave: Thirty seconds. If nobody picks up in thirty, move on.
+
+Onboarding Specialist: Works. Now let's talk emergency definitions. From the demo you mentioned sprinkler discharge, fire alarm activation, suppression system activation. Anything to add?
+
+Dave: Yeah we should add CO alarm — carbon monoxide. That's an emergency. Also if someone says there's smoke but no confirmed fire, still treat as emergency.
+
+Mike: And kitchen suppression system activation. We service a lot of restaurants and those go off, that's an emergency.
+
+Onboarding Specialist: Got it. I'm adding: CO alarm, smoke without confirmed fire, kitchen suppression activation, sprinkler discharge, fire alarm activation, suppression system activation.
+
+Mike: Yes, that covers it.
+
+Onboarding Specialist: What about inspections and routine service calls — how do you want those handled after hours?
+
+Dave: Take the message. Get their name, number, and what they need. We'll schedule it during business hours.
+
+Onboarding Specialist: And during business hours for non-emergencies?
+
+Mike: Transfer to our main office line. That's 214-555-0100.
+
+Onboarding Specialist: Got it. Now ServiceTrade — you mentioned some confusion about duplicate jobs. What's the guidance there?
+
+Mike: So our ServiceTrade admin, Linda, told me that Clara should never create jobs for sprinkler calls. Only alarm calls can be auto-created. Everything else needs to go through our office staff.
+
+Dave: Yeah and definitely don't create any jobs after hours. All after-hours stuff — just collect the info and let us handle it manually.
+
+Onboarding Specialist: Noted. So integration constraints are: never auto-create ServiceTrade jobs for sprinkler-related calls, never create jobs after hours, alarm calls can be auto-created during business hours only.
+
+Mike: Exactly.
+
+Onboarding Specialist: What's your office address for Clara to reference?
+
+Mike: 4821 Commerce Street, Dallas, Texas 75226.
+
+Onboarding Specialist: Great. Any specific language you want Clara to use when customers call? Anything about tone or branding?
+
+Mike: Just professional. We're not a call center, we're a fire protection company. Keep it serious, not chatty.
+
+Onboarding Specialist: Understood. Anything about residential versus commercial callers?
+
+Mike: We talked about this in the demo. Honestly just treat everyone the same for now. Don't differentiate. Keep it simple.
+
+Onboarding Specialist: Got it. One last thing — is there anything you specifically do NOT want Clara to say or do?
+
+Dave: Don't tell people we're going to create a work order. Half the time we don't. Just say we'll follow up.
+
+Mike: And don't tell them they're talking to an AI. We tested that with our customers and they don't love it.
+
+Onboarding Specialist: Noted. Clara will identify as Clara, the company's live assistant, without confirming AI status unless directly and persistently asked.
+
+Mike: Perfect.
+
+Onboarding Specialist: Alright, I think we've got everything. I'll have the updated configuration to you within 24 hours. Any final questions?
+
+Dave: What if the call drops mid-transfer?
+
+Onboarding Specialist: Clara will catch that and log the caller's information before ending. The on-call or office team will see it and call back.
+
+Dave: Good. Thanks.
+
+---
+END OF TRANSCRIPT

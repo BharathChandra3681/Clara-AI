@@ -1,0 +1,67 @@
+ONBOARDING CALL TRANSCRIPT
+Account: ACC005
+Date: 2024-02-10
+Participants: Clara Onboarding Specialist, Bob Sternfeld (Owner), Christine Welch (Office Manager) - Sternfeld Mechanical
+
+---
+
+Onboarding Specialist: Bob, Christine — great to have you both on. Let's finalize everything. Hours: Monday through Friday, seven to four, Mountain time?
+
+Christine: Actually Bob changed his mind. We want to keep it seven to five now. I'm staying an extra hour starting next month.
+
+Bob: Yeah, seven to five. Mountain time.
+
+Onboarding Specialist: Noted — seven to five. On-call coverage. Bob, you mentioned Eddie?
+
+Bob: Yeah, Eddie Garza. His cell is 720-555-0416.
+
+Christine: And if Eddie doesn't answer, we actually want calls to come to me during reasonable hours. Christine's cell is 720-555-0288. But only up to nine PM. After nine PM, Bob handles it.
+
+Bob: Yeah after nine my cell is 720-555-0009. That's the true emergency backup.
+
+Onboarding Specialist: So the order is: Eddie first, Christine up to nine PM, Bob after nine PM or if Christine doesn't answer?
+
+Bob: Exactly. Eddie's always first regardless of time. He's reliable.
+
+Onboarding Specialist: Transfer timeout?
+
+Bob: Thirty seconds for Eddie. If it's Christine or me, give it twenty seconds — we're available.
+
+Onboarding Specialist: Got it — thirty for Eddie, twenty for Christine and Bob. Emergency definitions?
+
+Christine: Bob listed the main ones in the demo. Gas leak, water main break, boiler failure at hospital or school in winter, sewage backup at medical facility. I want to add: any pipe burst inside a building — ceiling flooding, that's urgent.
+
+Bob: And loss of heat in a school during below-zero weather. That's an emergency even if the boiler isn't the cause.
+
+Onboarding Specialist: Adding those. ServiceTrade — Christine, what are the rules?
+
+Christine: Okay so I talked to our ServiceTrade rep. The rule is: Clara should never create job records in ServiceTrade. Ever. All job creation happens through our office staff. Clara can only pass information.
+
+Bob: Yeah I don't want the system getting cluttered with AI-created records.
+
+Christine: And specifically — we have a contract account for Denver Public Schools. If anyone calls identifying themselves as DPS facilities, Clara should flag it as high priority and include that in the message to us.
+
+Onboarding Specialist: Noted — DPS facilities calls get high-priority flag. ServiceTrade rule: no job creation under any circumstance.
+
+Christine: Right. Also, don't give out our ServiceTrade portal link to customers. Some of our competitor reps have tried to mine our customer list through the portal.
+
+Onboarding Specialist: Understood — do not reference or share ServiceTrade portal with callers.
+
+Onboarding Specialist: Office address — 789 Larimer Street, Denver, Colorado 80204?
+
+Bob: Yes.
+
+Onboarding Specialist: Any language preferences?
+
+Christine: Be precise about callback times. Don't say "soon." Say "by the next business day" or "within two hours" depending on urgency. Bob hates vague timelines.
+
+Bob: Yeah I'd rather under-promise. Tell them two hours, we'll usually beat it.
+
+Onboarding Specialist: Makes sense — I'll build in specific timeframe language based on urgency level. Anything else?
+
+Bob: Just make sure Clara knows we don't handle residential calls. If someone calls about their home plumbing, tell them we're commercial only and they should contact a residential plumber.
+
+Onboarding Specialist: Perfect — I'll add that as a call type filter.
+
+---
+END OF TRANSCRIPT

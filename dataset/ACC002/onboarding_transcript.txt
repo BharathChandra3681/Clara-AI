@@ -1,0 +1,55 @@
+ONBOARDING CALL TRANSCRIPT
+Account: ACC002
+Date: 2024-02-01
+Participants: Clara Onboarding Specialist, Sarah Okonkwo (Owner) - ArcticPro HVAC Services
+
+---
+
+Onboarding Specialist: Hi Sarah, let's get everything locked in today. Starting with business hours — you mentioned seven days a week during the demo. Confirming: Monday through Saturday eight AM to six PM, Sunday ten AM to four PM, Mountain Standard Time?
+
+Sarah: Yes, but actually I need to update Sunday — we changed it. Sunday is now eleven to three.
+
+Onboarding Specialist: Got it — Sunday eleven to three PM MST. Now the on-call technicians. Can you give me their direct numbers?
+
+Sarah: Yes. Tony Reyes is the primary on-call, his cell is 602-555-0214. Marcus Webb is backup, his number is 602-555-0388.
+
+Onboarding Specialist: Perfect. And if both fail to answer?
+
+Sarah: Try me. My number is 602-555-0001. I'm always reachable for a true emergency.
+
+Onboarding Specialist: Understood. Transfer timeout — how long before moving to the next contact?
+
+Sarah: Twenty-five seconds. These guys are in the field, they need a moment.
+
+Onboarding Specialist: Got it. Now emergency definitions — from the demo you listed: no heat below forty degrees, no AC above one hundred, CO alarm, complete failure for elderly or medical facility. Anything to add or refine?
+
+Sarah: I want to add: any active water leak from HVAC equipment — that's an emergency because water damage. Also, if a customer explicitly says "emergency" or "urgent" even if it doesn't match our list, escalate anyway. I'd rather over-respond.
+
+Onboarding Specialist: Good call. I'll add: HVAC-caused water leak, and customer-declared emergency.
+
+Sarah: Yes. Also I want to clarify the medical facility rule — it's not just any system failure there. It's: if it's a dialysis clinic, urgent care, or hospital and their HVAC is down, that's always an emergency regardless of temperature.
+
+Onboarding Specialist: Noted specifically. Now ServiceTitan integration rules.
+
+Sarah: New customer calling in for any reason — create a new lead in ServiceTitan. Existing customer calling for a non-emergency service request — log the call only, no duplicate. Emergency calls from any customer — log immediately and flag as high priority. Do not create a new job record during the call, we do that manually.
+
+Onboarding Specialist: Great. And the bilingual question from the demo — are we adding Spanish support?
+
+Sarah: Yes. If the caller is speaking Spanish, Clara should respond in Spanish. I don't want them to have to ask.
+
+Onboarding Specialist: We'll configure that. Any language constraints for the prompt?
+
+Sarah: Don't say "I apologize for any inconvenience" — it sounds corporate. Just be human. Say "I'm sorry, I know that's frustrating."
+
+Onboarding Specialist: Perfect. Any address to include?
+
+Sarah: No, still no fixed address. We're field-based.
+
+Onboarding Specialist: Understood. Anything else?
+
+Sarah: Make sure Clara confirms the appointment callback time. Like "someone will call you back by eight AM tomorrow" — not just "someone will call you back." Our customers need specifics.
+
+Onboarding Specialist: Great detail — I'll make sure the prompt includes specific callback windows. Alright, I think we have everything. Configuration coming within 24 hours.
+
+---
+END OF TRANSCRIPT

@@ -1,0 +1,45 @@
+DEMO CALL TRANSCRIPT
+Account: ACC005
+Date: 2024-01-22
+Participants: Sales Rep (Clara Answers), Bob Sternfeld (Owner - Sternfeld Mechanical)
+
+---
+
+Sales Rep: Bob, thanks for the time. Tell me about your business.
+
+Bob: Yeah so we're a plumbing and mechanical contractor out of Denver. Commercial focus — mostly hospitals, schools, office parks. We do plumbing, gas lines, boiler systems. I've got nine field guys and no receptionist. Just me and my office manager Christine, and she leaves at four.
+
+Sales Rep: So after four and on weekends, what happens?
+
+Bob: Phone rings, I answer it. Or it doesn't get answered. I need to stop being the default answering service for my own company.
+
+Sales Rep: What are your official business hours?
+
+Bob: Monday through Friday, seven to four. Mountain time. Christine leaves at four, I'm usually in the field until six or seven but I don't want calls going to me directly anymore.
+
+Sales Rep: What would you call an emergency?
+
+Bob: Gas leak. Active water main break. Boiler failure in a hospital or school — especially in winter. Sewage backup in a medical facility. Those are the ones that can't wait.
+
+Sales Rep: Do you have someone to take those calls?
+
+Bob: I do have an on-call guy, Eddie. Good tech. But I don't have his number in this phone — he's in my office phone contact list.
+
+Sales Rep: We'll get that in onboarding. Do you use software for job management?
+
+Bob: We use ServiceTrade. It works well for us.
+
+Sales Rep: Any specific ServiceTrade rules?
+
+Bob: Not that I'm aware of. I'd need to check with Christine.
+
+Sales Rep: Makes sense. What's your address?
+
+Bob: We're at 789 Larimer Street, Denver, Colorado 80204.
+
+Sales Rep: Any other considerations?
+
+Bob: A lot of our clients are facilities managers at institutions. They're used to professional, no-nonsense communication. Don't make Clara sound like a customer service robot. She should sound like a professional answering service.
+
+---
+END OF TRANSCRIPT

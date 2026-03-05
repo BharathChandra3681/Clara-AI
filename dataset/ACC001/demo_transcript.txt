@@ -1,0 +1,63 @@
+DEMO CALL TRANSCRIPT
+Account: ACC001
+Date: 2024-01-15
+Participants: Sales Rep (Clara Answers), Prospect (Mike Hendricks, Office Manager - Hendricks Fire Protection)
+
+---
+
+Sales Rep: Thanks for taking the time today, Mike. So tell me a bit about what's going on with your current call handling situation.
+
+Mike: Yeah, so basically we're a fire protection company out of Dallas. We do fire suppression, sprinkler systems, alarm systems, that kind of thing. We've got about twenty technicians in the field and the issue is we're getting calls all hours and we don't have anyone manning the phones after five.
+
+Sales Rep: Got it. And what time do your phones typically go live in the morning?
+
+Mike: We're open seven to five, Monday through Friday. Central time.
+
+Sales Rep: Okay. And when calls come in after hours — like say someone's got a sprinkler going off at eleven PM — what happens right now?
+
+Mike: Right now they hit voicemail and honestly it's chaos. Half the time nobody checks it until the next morning. We've lost customers over it.
+
+Sales Rep: That makes a lot of sense to fix. What would you consider an emergency? Like what kind of calls need someone on the phone immediately regardless of hour?
+
+Mike: Anything active. Sprinkler discharge, fire alarm going off, suppression system activation. Basically if there's water or fire happening, that's an emergency.
+
+Sales Rep: And for non-emergency stuff after hours, like someone calling to schedule an inspection?
+
+Mike: Yeah those can wait. Just collect their info and we'll call them back in the morning.
+
+Sales Rep: Perfect. Now do you have an on-call tech or dispatcher for emergencies?
+
+Mike: We do. We rotate it weekly but there's always someone on call. Right now it's our lead tech, James.
+
+Sales Rep: Do you have a direct number for the on-call line?
+
+Mike: We use a shared on-call cell. I don't have that number in front of me right now though.
+
+Sales Rep: No worries, we'll nail that down later. What about integrations — do you use any field service software like ServiceTrade or something similar?
+
+Mike: We're on ServiceTrade, yeah. We use it for scheduling and invoicing.
+
+Sales Rep: Anything specific about how you want call data to flow into ServiceTrade?
+
+Mike: Honestly we haven't thought that through yet. I know some of our guys have complained about duplicate jobs getting created but I don't know the details.
+
+Sales Rep: Okay, we'll flag that for your onboarding call to sort out. Now let me show you what Clara can actually do...
+
+[Demo of example Clara agent follows]
+
+Mike: Okay yeah this is impressive. The after-hours thing is exactly what we need. One question — can it tell the difference between a residential customer and a commercial one?
+
+Sales Rep: It can, if you set up the routing logic that way. That's something we'd configure during onboarding based on your specific setup.
+
+Mike: Good. Most of our work is commercial — office buildings, warehouses, restaurants. But we do some residential too.
+
+Sales Rep: Noted. Any other edge cases you're thinking about?
+
+Mike: I mean, sometimes people call about annual inspections. That's not an emergency but we do want to capture those leads. Especially if it's a new customer.
+
+Sales Rep: Great, we can build that in. Alright, I think we have a good sense of what you need. We'll put together a preliminary configuration and once you decide to move forward we'll do a full onboarding call to lock everything in.
+
+Mike: Sounds good. Looking forward to it.
+
+---
+END OF TRANSCRIPT

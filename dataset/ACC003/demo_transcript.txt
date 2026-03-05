@@ -1,0 +1,41 @@
+DEMO CALL TRANSCRIPT
+Account: ACC003
+Date: 2024-01-18
+Participants: Sales Rep (Clara Answers), Rick Palumbo (Operations Manager - Voltline Electrical Contractors)
+
+---
+
+Sales Rep: Rick, appreciate you taking the time. Give me the lay of the land — what kind of business is Voltline and what's the pain you're trying to solve?
+
+Rick: We're a commercial electrical contractor out of Chicago. Mostly warehouse facilities, manufacturing plants, office buildings. We do new construction and maintenance. About thirty technicians on the roster. The problem is our receptionist works nine to five and after that, calls go unanswered. We've missed some pretty significant emergency jobs because of it.
+
+Sales Rep: Understood. What's your standard business hours?
+
+Rick: Monday through Friday, eight to five. Central time. We're not open weekends, period.
+
+Sales Rep: What makes an electrical call an emergency in your world?
+
+Rick: Power outage at a facility — especially manufacturing. Panel fire or any fire risk. Electrical smell or sparks in a commercial building. Generator failure. Those are the big ones.
+
+Sales Rep: And for non-emergencies after hours?
+
+Rick: Leave a message. But I want the message to actually reach someone, not just sit in a voicemail box. So capture the info and send it to our dispatch email.
+
+Sales Rep: Do you have on-call coverage for emergencies?
+
+Rick: Yeah, we run a weekly rotation. Right now it's my guy Phil who handles it but we've got about four guys in the rotation.
+
+Sales Rep: Got it. Do you use any job management software?
+
+Rick: We use FieldEdge. But honestly we're not ready to do any integrations yet. Just the call handling for now.
+
+Sales Rep: That's totally fine. We can always layer integrations in later. Any concerns or questions about how this works?
+
+Rick: My concern is accuracy. I don't want the AI telling a customer we'll be there in thirty minutes if we can't guarantee that. We have SLAs with some clients.
+
+Sales Rep: That's a reasonable concern — we build the prompt so Clara never makes time commitments, only confirms that the message was received and someone will follow up.
+
+Rick: Good. That's what I want.
+
+---
+END OF TRANSCRIPT

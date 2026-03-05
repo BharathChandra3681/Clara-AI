@@ -1,0 +1,55 @@
+DEMO CALL TRANSCRIPT
+Account: ACC002
+Date: 2024-01-16
+Participants: Sales Rep (Clara Answers), Sarah Okonkwo (Owner - ArcticPro HVAC Services)
+
+---
+
+Sales Rep: Hi Sarah, thanks for jumping on. Tell me a bit about your business and what's driving you to look at something like Clara.
+
+Sarah: Sure. So we're an HVAC company based in Phoenix, Arizona. Commercial and residential. We do installation, maintenance, repairs. We've got twelve technicians and the phone situation is a nightmare. I'm the owner and I'm answering calls at ten PM because nobody else is.
+
+Sales Rep: That's exactly what Clara is designed to fix. What are your normal business hours?
+
+Sarah: We're open seven days a week actually. Monday through Saturday eight to six, Sunday ten to four. Mountain time.
+
+Sales Rep: Got it, that's helpful — seven-day operation. When would you say a call is truly an emergency?
+
+Sarah: No heat in winter when it's below forty degrees outside. No AC in summer when it's above a hundred. That's Phoenix, so that happens all the time in summer. Carbon monoxide detector going off near the HVAC system. Complete system failure for an elderly customer or a medical facility.
+
+Sales Rep: Makes sense. Do you have on-call technicians for emergencies?
+
+Sarah: I have two on-call guys, Tony and Marcus. I rotate them week by week. But I don't have their numbers committed to memory right now.
+
+Sales Rep: That's fine, we collect those in onboarding. For non-emergencies after hours?
+
+Sarah: Take a message. Get what they need and we'll call them back next business day. Or same day if it's Sunday and they need something urgent but not emergency.
+
+Sales Rep: Do you use any software for scheduling or work orders?
+
+Sarah: We use ServiceTitan. It's how we manage everything.
+
+Sales Rep: Anything specific about ServiceTitan integration?
+
+Sarah: I want new customer calls to create a lead in ServiceTitan automatically. Existing customers, just log the call. Don't create a duplicate.
+
+Sales Rep: Got it. What about your office address?
+
+Sarah: We don't really have a customer-facing office. Everything is field-based. So I don't want Clara giving out an address.
+
+Sales Rep: Noted — we'll leave that out. Anything else that comes to mind?
+
+Sarah: Just that our customers are often stressed when they call. Especially if their AC is out in August in Phoenix. Clara needs to be calm and reassuring, not robotic.
+
+Sales Rep: Definitely. That's the tone we build in. Let me show you how it works...
+
+[Demo follows]
+
+Sarah: I love it. The after-hours handling is exactly what I need. Can it handle Spanish-speaking callers?
+
+Sales Rep: That's a bilingual capability we'd configure separately. Let's note that as something to explore.
+
+Sarah: Yes, please. A lot of our residential customers speak Spanish primarily.
+
+---
+END OF TRANSCRIPT

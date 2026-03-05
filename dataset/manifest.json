@@ -1,0 +1,27 @@
+[
+  {
+    "account_id": "ACC001",
+    "demo_transcript": "ACC001/demo_transcript.txt",
+    "onboarding_transcript": "ACC001/onboarding_transcript.txt"
+  },
+  {
+    "account_id": "ACC002",
+    "demo_transcript": "ACC002/demo_transcript.txt",
+    "onboarding_transcript": "ACC002/onboarding_transcript.txt"
+  },
+  {
+    "account_id": "ACC003",
+    "demo_transcript": "ACC003/demo_transcript.txt",
+    "onboarding_transcript": "ACC003/onboarding_transcript.txt"
+  },
+  {
+    "account_id": "ACC004",
+    "demo_transcript": "ACC004/demo_transcript.txt",
+    "onboarding_transcript": "ACC004/onboarding_transcript.txt"
+  },
+  {
+    "account_id": "ACC005",
+    "demo_transcript": "ACC005/demo_transcript.txt",
+    "onboarding_transcript": "ACC005/onboarding_transcript.txt"
+  }
+]

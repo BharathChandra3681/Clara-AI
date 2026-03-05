@@ -1,0 +1,75 @@
+ONBOARDING CALL TRANSCRIPT
+Account: ACC004
+Date: 2024-02-08
+Participants: Clara Onboarding Specialist, Jennifer Tran (GM), Kevin Marsh (Service Manager) - ShieldGuard Alarm Systems
+
+---
+
+Onboarding Specialist: Jennifer, Kevin — let's confirm the full configuration. Business hours: Monday through Friday, eight thirty to five thirty, Eastern time?
+
+Jennifer: Correct.
+
+Onboarding Specialist: Kevin, for emergencies coming to the office line — you're the primary contact?
+
+Kevin: Yes. My cell is 404-555-0312.
+
+Onboarding Specialist: And backup if you don't answer?
+
+Kevin: Jennifer is backup. Her cell is 404-555-0189.
+
+Jennifer: And if neither of us answer, have Clara tell the customer to call our monitoring center directly. That number is 404-555-0900.
+
+Onboarding Specialist: Perfect — three-tier: Kevin, Jennifer, then redirect to monitoring center at 404-555-0900.
+
+Jennifer: Yes. The monitoring center is always staffed.
+
+Onboarding Specialist: Transfer timeout?
+
+Kevin: Forty seconds. I might be on a ladder.
+
+Onboarding Specialist: Forty seconds it is. Emergency definitions for the office line: system completely non-functional, safety issue with new installation, sparking or malfunctioning. What else?
+
+Kevin: Add: customer is being actively burglarized or threatened and called the wrong number by mistake. In that case tell them to hang up and call 911 immediately. Don't transfer, don't take a message.
+
+Jennifer: Yes, that's critical. We've had that happen before.
+
+Onboarding Specialist: I'll add that as a priority override — if caller indicates active crime in progress, immediately direct to 911 and do not proceed with normal flow.
+
+Kevin: Exactly.
+
+Onboarding Specialist: Non-emergency after-hours handling?
+
+Jennifer: Service requests — take message, callback during business hours. Sales inquiries — take message, our sales team calls next morning. Billing questions — we actually have a billing portal. Direct them to shieldguardalarms.com/billing.
+
+Onboarding Specialist: Great, I'll include that. Any ServiceMax or Alarm.com integration now?
+
+Jennifer: Not yet for ServiceMax. But I do want Clara to note whether a caller is an existing customer or a new lead. Even if Clara can't look it up, at least ask "are you a current ShieldGuard customer?" and log the answer.
+
+Onboarding Specialist: Easy — we'll add that as a qualifying question at the start of every call.
+
+Kevin: Actually — only ask that if it's not clearly an emergency. Don't slow down an emergency call with a qualifying question.
+
+Onboarding Specialist: Understood — qualifying question for non-emergency calls only.
+
+Jennifer: Right. For emergencies just get straight to it.
+
+Onboarding Specialist: Any language rules?
+
+Jennifer: Don't say "your call is important to us." Hate that. Just be direct. Also, do not confirm whether our monitoring center is in Atlanta or remote. That's confidential.
+
+Onboarding Specialist: Noted — no disclosing monitoring center location.
+
+Onboarding Specialist: Office address is 3400 Peachtree Road NE, Suite 200, Atlanta, Georgia 30326 — confirming?
+
+Jennifer: Yes, that's correct.
+
+Onboarding Specialist: Perfect. Anything else?
+
+Kevin: What happens if a customer is angry? Like really upset about a false alarm fee?
+
+Onboarding Specialist: Clara is trained to stay calm, acknowledge frustration, and offer to connect them with the right team. It won't argue or offer credits — it'll just route.
+
+Kevin: Good. We've had some heated calls.
+
+---
+END OF TRANSCRIPT

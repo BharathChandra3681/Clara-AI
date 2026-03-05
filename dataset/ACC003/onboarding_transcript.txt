@@ -1,0 +1,65 @@
+ONBOARDING CALL TRANSCRIPT
+Account: ACC003
+Date: 2024-02-05
+Participants: Clara Onboarding Specialist, Rick Palumbo (Operations Manager), Phil Stein (Lead Technician) - Voltline Electrical Contractors
+
+---
+
+Onboarding Specialist: Hi Rick, hi Phil. Let's get you set up. Confirming business hours: Monday through Friday, eight to five, Central time?
+
+Rick: Correct.
+
+Onboarding Specialist: On-call coverage. Phil, I hear you're the primary right now?
+
+Phil: Yeah for this month. My cell is 312-555-0277.
+
+Onboarding Specialist: And backup?
+
+Rick: Backup is our other senior tech, Carlos. His number is 312-555-0348.
+
+Phil: After Carlos, try Rick direct. Rick's cell is 312-555-0412.
+
+Rick: Yeah I'm always the last resort. I want to know if nobody else picks up.
+
+Onboarding Specialist: Got it — three-tier: Phil, Carlos, Rick. Transfer timeout?
+
+Rick: Give it thirty seconds each. But don't try Rick unless both others fail. He's the owner and he doesn't want to be the first call.
+
+Onboarding Specialist: Understood — Phil first, Carlos second, Rick only on full failure.
+
+Rick: Exactly.
+
+Onboarding Specialist: Emergency definitions you listed: power outage at a facility, panel fire or fire risk, electrical smell or sparks, generator failure. Anything to add?
+
+Phil: Yeah — down electrical in a cold storage facility. If a refrigerated warehouse loses power, that's critical, add it.
+
+Rick: Also: any call from a healthcare facility. Hospital or clinic losing power is always emergency, full stop.
+
+Onboarding Specialist: Adding both. Now for dispatch email — you mentioned wanting messages sent to an email. What's that address?
+
+Rick: dispatch@voltlineelectric.com. And I also want a copy to rick@voltlineelectric.com for anything flagged as emergency.
+
+Onboarding Specialist: Noted. FieldEdge — you said no integration yet. Confirming that's still the case?
+
+Rick: Yes, no integration. Don't even mention FieldEdge to callers.
+
+Onboarding Specialist: Of course. What's your office address?
+
+Rick: 2200 West Diversey Avenue, Chicago, Illinois 60647.
+
+Onboarding Specialist: Any specific language rules for Clara?
+
+Rick: Don't make promises. Never say "we'll be there." Say "we'll be in touch." Also don't say "someone will call you back shortly" — that implies fifteen minutes. Say "someone will call you back as soon as possible."
+
+Onboarding Specialist: Good. Any concerns about the after-hours flow?
+
+Phil: I want Clara to ask whether it's a manufacturing facility or an office building. Different urgency for me. A manufacturing plant down is worse than a dark office building.
+
+Onboarding Specialist: I can include that as a qualifying question during the emergency intake — "Is this a manufacturing, warehouse, or other type of commercial facility?" and log the answer.
+
+Phil: Perfect.
+
+Onboarding Specialist: Great, I think we have everything. Configuration in 24 hours.
+
+---
+END OF TRANSCRIPT

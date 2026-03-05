@@ -1,0 +1,45 @@
+DEMO CALL TRANSCRIPT
+Account: ACC004
+Date: 2024-01-20
+Participants: Sales Rep (Clara Answers), Jennifer Tran (General Manager - ShieldGuard Alarm Systems)
+
+---
+
+Sales Rep: Jennifer, tell me about ShieldGuard and what's bringing you to us.
+
+Jennifer: We're an alarm systems company in Atlanta. Commercial and residential. We do installation, monitoring contracts, service calls. Probably sixty percent commercial, forty residential. We have a twenty-four seven monitoring center but our office line is a separate number and that's what we want Clara handling.
+
+Sales Rep: Got it — so Clara is handling the office line, not the emergency monitoring line?
+
+Jennifer: Correct. The monitoring center handles actual alarm activations. Clara is for everything else — service requests, sales inquiries, billing questions, scheduling.
+
+Sales Rep: That's an important distinction. What are your office hours?
+
+Jennifer: Monday through Friday, eight thirty to five thirty. Eastern time.
+
+Sales Rep: When would a call coming to the office line still be considered an emergency that needs immediate routing?
+
+Jennifer: If someone is saying their system is completely down — no monitoring, no panels working. That's an emergency for our service team. Or if it's a new alarm installation and something is sparking or malfunctioning. Anything that sounds like a safety issue.
+
+Sales Rep: On-call for those?
+
+Jennifer: Our service manager, Kevin, handles emergencies. But I honestly don't know his exact cell off the top of my head.
+
+Sales Rep: No problem. Do you use any software?
+
+Jennifer: We're on Alarm.com for our monitoring backend, and we use an internal CRM called ServiceMax for scheduling and customer records.
+
+Sales Rep: Any integration requirements right now?
+
+Jennifer: Not urgent. We mainly just need the call routing to work. Integration can come later.
+
+Sales Rep: And your office address?
+
+Jennifer: 3400 Peachtree Road NE, Suite 200, Atlanta, Georgia 30326.
+
+Sales Rep: Any particular tone or anything you want Clara to avoid?
+
+Jennifer: We deal with customers who are sometimes nervous about security stuff. Clara needs to be reassuring but also crisp and professional. No fluff.
+
+---
+END OF TRANSCRIPT

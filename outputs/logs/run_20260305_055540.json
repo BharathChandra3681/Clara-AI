@@ -1,0 +1,44 @@
+{
+  "run_at": "2026-03-05T05:55:40.671607+00:00",
+  "total_accounts": 5,
+  "pipeline_a_success": 5,
+  "pipeline_b_success": 5,
+  "errors": 0,
+  "results": [
+    {
+      "account_id": "ACC001",
+      "pipeline_a": "success",
+      "pipeline_b": "success",
+      "error": null,
+      "changes_count": 6
+    },
+    {
+      "account_id": "ACC002",
+      "pipeline_a": "success",
+      "pipeline_b": "success",
+      "error": null,
+      "changes_count": 7
+    },
+    {
+      "account_id": "ACC003",
+      "pipeline_a": "success",
+      "pipeline_b": "success",
+      "error": null,
+      "changes_count": 7
+    },
+    {
+      "account_id": "ACC004",
+      "pipeline_a": "success",
+      "pipeline_b": "success",
+      "error": null,
+      "changes_count": 5
+    },
+    {
+      "account_id": "ACC005",
+      "pipeline_a": "success",
+      "pipeline_b": "success",
+      "error": null,
+      "changes_count": 6
+    }
+  ]
+}

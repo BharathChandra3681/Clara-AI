@@ -1,0 +1,54 @@
+{
+  "account_id": "ACC003",
+  "company_name": "Operations Manager - Voltline Electrical Contractors",
+  "business_hours": {
+    "days": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "start": "9:00",
+    "end": "5:00",
+    "timezone": "America/Chicago"
+  },
+  "office_address": null,
+  "services_supported": [
+    "electrical",
+    "maintenance"
+  ],
+  "emergency_definition": [
+    "Power outage"
+  ],
+  "emergency_routing_rules": {
+    "primary_contact": null,
+    "primary_phone": null,
+    "secondary_contact": null,
+    "secondary_phone": null,
+    "order": [],
+    "fallback": null
+  },
+  "non_emergency_routing_rules": {
+    "during_hours": "route to available staff",
+    "after_hours": "collect name, number, issue description and confirm callback next business day",
+    "voicemail_allowed": true
+  },
+  "call_transfer_rules": {
+    "timeout_seconds": null,
+    "retries": 1,
+    "transfer_fail_message": null,
+    "warm_transfer": null
+  },
+  "integration_constraints": [],
+  "after_hours_flow_summary": "Greet caller, identify if emergency. If emergency: collect name, phone, address immediately, attempt transfer, assure follow-up if fails. If non-emergency: collect contact info and confirm callback next business day.",
+  "office_hours_flow_summary": "Greet caller, understand request, collect name and number, route or transfer as appropriate, confirm next steps, close.",
+  "notes": null,
+  "extraction_stage": "demo",
+  "extracted_at": "2026-03-05T05:55:40.621297+00:00",
+  "version": "v1",
+  "questions_or_unknowns": [
+    "Missing: emergency_routing_rules.primary_phone \u2014 not provided in this call",
+    "Missing: call_transfer_rules.timeout_seconds \u2014 not provided in this call"
+  ]
+}

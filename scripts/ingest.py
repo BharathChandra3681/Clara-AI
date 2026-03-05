@@ -307,7 +307,7 @@ def watch_folder(watch_dir: Path, whisper_model: str, sync_retell: bool):
 # ── CLI ────────────────────────────────────────────────────────────────────────
 
 def main():
-    parser = argparse.ArgumentParser(description="Clara Answers – Auto Ingest")
+    parser = argparse.ArgumentParser(description="Clara AI – Auto Ingest")
     parser.add_argument("--file", help="Path to audio/video/transcript file")
     parser.add_argument("--account_id", help="Account ID e.g. BEN001")
     parser.add_argument("--stage", choices=["demo", "onboarding"], help="Auto-detected if not set")

@@ -16,7 +16,6 @@ from pathlib import Path
 OUTPUTS_DIR = Path(__file__).parent.parent / "outputs" / "accounts"
 
 
-# ── Deep diff ──────────────────────────────────────────────────────────────────
 
 def deep_diff(old: object, new: object, path: str = "") -> list[dict]:
     """Recursively diff two objects, returning a list of change records."""
@@ -67,7 +66,6 @@ def deep_diff(old: object, new: object, path: str = "") -> list[dict]:
     return changes
 
 
-# ── Markdown renderer ──────────────────────────────────────────────────────────
 
 def render_markdown(account_id: str, changes: list[dict], memo_v1: dict, memo_v2: dict) -> str:
     company = memo_v2.get("company_name") or account_id
@@ -129,10 +127,9 @@ def render_markdown(account_id: str, changes: list[dict], memo_v1: dict, memo_v2
     return "\n".join(lines)
 
 
-# ── Main ───────────────────────────────────────────────────────────────────────
 
 def main():
-    parser = argparse.ArgumentParser(description="Clara Answers – Changelog Generator")
+    parser = argparse.ArgumentParser(description="Clara AI – Changelog Generator")
     parser.add_argument("--account_id", required=True)
     args = parser.parse_args()
 
@@ -174,7 +171,7 @@ def main():
     md_path.write_text(md)
     print(f"[save] Changelog MD:   {md_path}")
 
-    print(f"\n✅ Changelog generated for {args.account_id}: {len(changes)} changes")
+    print(f"\n Changelog generated for {args.account_id}: {len(changes)} changes")
 
 
 if __name__ == "__main__":

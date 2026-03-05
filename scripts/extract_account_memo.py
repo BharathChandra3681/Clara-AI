@@ -26,7 +26,7 @@ OUTPUTS_DIR = Path(__file__).parent.parent / "outputs" / "accounts"
 CONFIG_DIR  = Path(__file__).parent.parent / "config"
 
 # ── Prompt templates ──────────────────────────────────────────────────────────
-EXTRACTION_SYSTEM_PROMPT = """You are a precise data extraction assistant for Clara Answers, 
+EXTRACTION_SYSTEM_PROMPT = """You are a precise data extraction assistant for Clara AI, 
 an AI voice agent platform serving service-trade businesses (fire protection, sprinkler, 
 HVAC, electrical, alarm contractors).
 
@@ -91,7 +91,7 @@ TRANSCRIPT:
 
 Return ONLY the JSON object described in your instructions. No markdown, no explanation."""
 
-ONBOARDING_PATCH_PROMPT = """You are updating an existing Clara Answers account configuration.
+ONBOARDING_PATCH_PROMPT = """You are updating an existing Clara AI account configuration.
 You have the existing v1 configuration and a new onboarding call transcript.
 
 RULES:
@@ -255,7 +255,7 @@ def save_changelog(changes: list, account_id: str) -> Path:
 
 # ── CLI ───────────────────────────────────────────────────────────────────────
 def main():
-    parser = argparse.ArgumentParser(description="Clara Answers – Account Memo Extractor")
+    parser = argparse.ArgumentParser(description="Clara AI – Account Memo Extractor")
     parser.add_argument("--transcript", required=True, help="Path to transcript .txt file")
     parser.add_argument("--account_id", required=True, help="Account ID, e.g. ACC001")
     parser.add_argument("--stage", required=True, choices=["demo", "onboarding"])

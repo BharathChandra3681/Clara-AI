@@ -1,45 +1,3 @@
-"""
-run_pipeline.py
----------------
-Batch runner for the full Clara Answers pipeline.
-
-Pipeline A (Demo):
-  transcript -> extract_account_memo (v1) -> generate_agent_spec (v1)
-
-Pipeline B (Onboarding):
-  transcript + v1_memo -> extract_account_memo (v2) -> generate_agent_spec (v2) -> generate_changelog
-
-Usage:
-    # Run all accounts
-    python run_pipeline.py --dataset_dir ./dataset
-
-    # Run single account
-    python run_pipeline.py --dataset_dir ./dataset --account_id ACC001
-
-    # Re-run (idempotent - overwrites existing outputs)
-    python run_pipeline.py --dataset_dir ./dataset --force
-
-Dataset directory structure expected:
-    dataset/
-        ACC001/
-            demo_transcript.txt
-            onboarding_transcript.txt   (optional - only needed for Pipeline B)
-        ACC002/
-            demo_transcript.txt
-            onboarding_transcript.txt
-        ...
-
-    OR with a manifest file:
-    dataset/manifest.json:
-    [
-        {
-            "account_id": "ACC001",
-            "demo_transcript": "path/to/demo.txt",
-            "onboarding_transcript": "path/to/onboarding.txt"   // optional
-        }
-    ]
-"""
-
 import argparse
 import json
 import os
@@ -59,7 +17,6 @@ OUTPUTS_DIR = Path(__file__).parent.parent / "outputs" / "accounts"
 LOGS_DIR    = Path(__file__).parent.parent / "outputs" / "logs"
 
 
-# ── Logging ───────────────────────────────────────────────────────────────────
 
 def log(msg: str, level: str = "INFO"):
     ts = datetime.now(timezone.utc).strftime("%H:%M:%S")
@@ -67,7 +24,6 @@ def log(msg: str, level: str = "INFO"):
     print(f"[{ts}] {prefix} {msg}")
 
 
-# ── Account discovery ─────────────────────────────────────────────────────────
 
 def discover_accounts(dataset_dir: Path) -> list[dict]:
     """
@@ -118,7 +74,6 @@ def discover_accounts(dataset_dir: Path) -> list[dict]:
     return accounts
 
 
-# ── Single account pipeline ────────────────────────────────────────────────────
 
 def run_account(entry: dict, force: bool = False) -> dict:
     account_id  = entry["account_id"]
@@ -133,7 +88,6 @@ def run_account(entry: dict, force: bool = False) -> dict:
     }
 
     try:
-        # ── Pipeline A: Demo ──────────────────────────────────────────────────
         v1_memo_path = OUTPUTS_DIR / account_id / "v1" / "account_memo.json"
         if not demo_path:
             log(f"[{account_id}] No demo transcript — skipping Pipeline A", "WARN")
@@ -150,7 +104,6 @@ def run_account(entry: dict, force: bool = False) -> dict:
             result["pipeline_a"] = "success"
             log(f"[{account_id}] Pipeline A complete ✅")
 
-        # ── Pipeline B: Onboarding ────────────────────────────────────────────
         v2_memo_path = OUTPUTS_DIR / account_id / "v2" / "account_memo.json"
         if not ob_path:
             log(f"[{account_id}] No onboarding transcript — skipping Pipeline B", "WARN")
@@ -200,7 +153,6 @@ def run_account(entry: dict, force: bool = False) -> dict:
     return result
 
 
-# ── Summary report ─────────────────────────────────────────────────────────────
 
 def save_run_summary(results: list[dict]):
     LOGS_DIR.mkdir(parents=True, exist_ok=True)
@@ -220,10 +172,9 @@ def save_run_summary(results: list[dict]):
     return summary
 
 
-# ── CLI ────────────────────────────────────────────────────────────────────────
 
 def main():
-    parser = argparse.ArgumentParser(description="Clara Answers – Batch Pipeline Runner")
+    parser = argparse.ArgumentParser(description="Clara AI – Batch Pipeline Runner")
     parser.add_argument("--dataset_dir", default="./dataset", help="Dataset directory")
     parser.add_argument("--account_id", help="Run single account only")
     parser.add_argument("--force", action="store_true", help="Overwrite existing outputs")
@@ -236,7 +187,7 @@ def main():
         print(f"ERROR: Dataset directory not found: {dataset_dir}")
         sys.exit(1)
 
-    log("Clara Answers Pipeline Runner", "START")
+    log("Clara AI Pipeline Runner", "START")
     log(f"Dataset: {dataset_dir.resolve()}")
     log(f"Force rerun: {args.force}")
 

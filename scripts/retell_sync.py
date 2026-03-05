@@ -192,7 +192,7 @@ def sync_account(account_id: str, version: str, dry_run: bool = False) -> dict:
 # ── CLI ────────────────────────────────────────────────────────────────────────
 
 def main():
-    parser = argparse.ArgumentParser(description="Clara Answers – Retell Sync")
+    parser = argparse.ArgumentParser(description="Clara AI – Retell Sync")
     parser.add_argument("--account_id", help="Single account ID to sync")
     parser.add_argument("--all", action="store_true", help="Sync all accounts")
     parser.add_argument("--version", default="v2", choices=["v1", "v2"])

@@ -417,7 +417,7 @@ def run_account(account_id: str, demo_path: str, ob_path: str | None) -> dict:
         spec_v1 = build_agent_spec(v1_memo, "v1")
         save_agent_spec(spec_v1, account_id, "v1")
         result["pipeline_a"] = "success"
-        print(f"[{account_id}] ✅ Pipeline A complete")
+        print(f"[{account_id}]  Pipeline A complete")
 
         # Pipeline B
         if ob_path:
@@ -448,15 +448,15 @@ def run_account(account_id: str, demo_path: str, ob_path: str | None) -> dict:
 
             result["pipeline_b"] = "success"
             result["changes_count"] = len(diff_changes)
-            print(f"[{account_id}] ✅ Pipeline B complete ({len(diff_changes)} changes detected)")
+            print(f"[{account_id}]  Pipeline B complete ({len(diff_changes)} changes detected)")
         else:
-            print(f"[{account_id}] ⚠️  No onboarding transcript — skipping Pipeline B")
+            print(f"[{account_id}]   No onboarding transcript — skipping Pipeline B")
 
     except Exception as e:
         import traceback
         result["error"] = str(e)
         result["traceback"] = traceback.format_exc()
-        print(f"[{account_id}] ❌ Error: {e}")
+        print(f"[{account_id}]  Error: {e}")
 
     return result
 
@@ -473,7 +473,7 @@ def main():
     if args.account_id:
         manifest = [e for e in manifest if e["account_id"] == args.account_id]
 
-    print(f"🚀 Clara Answers Pipeline — Processing {len(manifest)} accounts")
+    print(f" Clara AI Pipeline — Processing {len(manifest)} accounts")
     print(f"   Dataset:  {DATASET_DIR}")
     print(f"   Outputs:  {OUTPUTS_DIR}")
 
@@ -500,9 +500,9 @@ def main():
     print(f"\n{'='*55}")
     print(f"  PIPELINE COMPLETE")
     print(f"  Accounts     : {summary['total_accounts']}")
-    print(f"  Pipeline A ✅ : {summary['pipeline_a_success']}")
-    print(f"  Pipeline B ✅ : {summary['pipeline_b_success']}")
-    print(f"  Errors    ❌ : {summary['errors']}")
+    print(f"  Pipeline A  : {summary['pipeline_a_success']}")
+    print(f"  Pipeline B  : {summary['pipeline_b_success']}")
+    print(f"  Errors    : {summary['errors']}")
     print(f"{'='*55}")
 
 

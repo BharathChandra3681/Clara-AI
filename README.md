@@ -1,4 +1,4 @@
-# Clara Answers – Automation Pipeline
+# Clara AI – Automation Pipeline
 
 > Converts demo & onboarding call transcripts into versioned Retell AI agent configurations.  
 > **Zero-cost. Reproducible. Batch-capable.**

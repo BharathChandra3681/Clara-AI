@@ -38,5 +38,13 @@
     "version": "v2",
     "agent_name": "Clara \u2013 Sternfeld Mechanical",
     "synced_at": "2026-03-05T06:43:08.250742+00:00"
+  },
+  "BEN001": {
+    "account_id": "BEN001",
+    "agent_id": "agent_c32133641d70c92957c374b01b",
+    "llm_id": "llm_098450d3d47bc9cb1602b5e3a4ef",
+    "version": "v1",
+    "agent_name": "Clara \u2013 None",
+    "synced_at": "2026-03-05T10:09:43.626759+00:00"
   }
 }

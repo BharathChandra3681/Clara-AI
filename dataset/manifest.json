@@ -23,5 +23,9 @@
     "account_id": "ACC005",
     "demo_transcript": "ACC005/demo_transcript.txt",
     "onboarding_transcript": "ACC005/onboarding_transcript.txt"
+  },
+  {
+    "account_id": "BEN001",
+    "demo_transcript": "BEN001/demo_transcript.txt"
   }
 ]

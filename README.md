@@ -62,14 +62,14 @@ xdg-open outputs/dashboard.html  # Linux
 
 ### Optional: LLM-Enhanced Mode (better extraction quality)
 
-Set your Anthropic API key to use `claude-haiku-4-5` for extraction:
+Set your Gemini API key for higher-quality extraction:
 
 ```bash
-export ANTHROPIC_API_KEY=sk-ant-...
+export GEMINI_API_KEY=your-key-here
 python scripts/run_pipeline.py --dataset_dir ./dataset
 ```
 
-> **Zero-cost note**: Anthropic's free tier allows limited API usage.  
+> **Zero-cost note**: Gemini API has a free tier at [aistudio.google.com/apikey](https://aistudio.google.com/apikey).  
 > The `run_demo.py` rule-based extractor requires no API key at all.
 
 ---
@@ -239,7 +239,7 @@ Clara generates a `agent_spec.json` per account. To import into Retell:
 |---|---|---|
 | `GEMINI_API_KEY` | No | Google Gemini key for LLM-enhanced extraction. Free at aistudio.google.com |
 | `RETELL_API_KEY` | No | Retell AI key for agent sync. Enables `--sync-retell` in ingest |
-| `ANTHROPIC_API_KEY` | No | Enables LLM extraction via Claude. Alternative to Gemini |
+
 | `N8N_PORT` | No | n8n port (default: 5678) |
 | `CLARA_API_PORT` | No | Local API port (default: 5001) |
 
@@ -265,7 +265,7 @@ Copy `.env.example` to `.env` and fill in values.
 
 ## Known Limitations
 
-1. **Rule-based extraction** (zero-cost mode) uses regex patterns. Complex or ambiguous transcripts may miss nuance. LLM mode (`ANTHROPIC_API_KEY` set) significantly improves accuracy.
+1. **Rule-based extraction** (zero-cost mode) uses regex patterns. Complex or ambiguous transcripts may miss nuance. LLM mode (`GEMINI_API_KEY` set) significantly improves accuracy.
 
 2. **Phone number extraction** maps by position in transcript, not by semantic role. In transcripts where multiple numbers appear without clear role labels, manual review of `emergency_routing_rules` is recommended.
 

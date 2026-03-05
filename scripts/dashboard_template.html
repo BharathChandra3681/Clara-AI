@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clara Answers – Pipeline Dashboard</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d2e;
+    --surface2: #252840;
+    --border: #2e3150;
+    --accent: #6366f1;
+    --accent2: #8b5cf6;
+    --green: #10b981;
+    --yellow: #f59e0b;
+    --red: #ef4444;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --radius: 10px;
+  }
+  body { background: var(--bg); color: var(--text); font-family: 'Inter', system-ui, sans-serif; min-height: 100vh; }
+
+  /* Header */
+  header {
+    background: linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 32px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .logo { display: flex; align-items: center; gap: 12px; }
+  .logo-icon { width: 36px; height: 36px; background: linear-gradient(135deg, var(--accent), var(--accent2)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+  .logo h1 { font-size: 20px; font-weight: 700; }
+  .logo span { font-size: 13px; color: var(--muted); }
+  .header-stats { display: flex; gap: 24px; }
+  .stat { text-align: center; }
+  .stat-val { font-size: 22px; font-weight: 700; color: var(--accent); }
+  .stat-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; }
+
+  /* Layout */
+  .container { display: grid; grid-template-columns: 280px 1fr; height: calc(100vh - 77px); }
+
+  /* Sidebar */
+  .sidebar { background: var(--surface); border-right: 1px solid var(--border); overflow-y: auto; padding: 16px 12px; }
+  .sidebar-title { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 10px; padding: 0 8px; }
+  .account-card {
+    padding: 12px; border-radius: var(--radius); cursor: pointer;
+    margin-bottom: 6px; border: 1px solid transparent; transition: all .15s;
+  }
+  .account-card:hover { background: var(--surface2); border-color: var(--border); }
+  .account-card.active { background: rgba(99,102,241,.15); border-color: var(--accent); }
+  .acc-id { font-size: 11px; color: var(--muted); margin-bottom: 2px; }
+  .acc-name { font-size: 13px; font-weight: 600; }
+  .acc-badges { display: flex; gap: 4px; margin-top: 6px; flex-wrap: wrap; }
+  .badge { font-size: 10px; padding: 2px 7px; border-radius: 20px; font-weight: 600; }
+  .badge-v1 { background: rgba(245,158,11,.15); color: var(--yellow); }
+  .badge-v2 { background: rgba(16,185,129,.15); color: var(--green); }
+  .badge-err { background: rgba(239,68,68,.15); color: var(--red); }
+
+  /* Main panel */
+  .main { overflow-y: auto; padding: 24px 28px; }
+  .empty-state { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 400px; color: var(--muted); gap: 12px; }
+  .empty-icon { font-size: 48px; }
+
+  /* Section */
+  .section { margin-bottom: 24px; }
+  .section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+  .section-title { font-size: 15px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+  .section-icon { width: 28px; height: 28px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+
+  /* Tabs */
+  .tabs { display: flex; gap: 4px; margin-bottom: 20px; border-bottom: 1px solid var(--border); }
+  .tab { padding: 8px 16px; cursor: pointer; font-size: 13px; color: var(--muted); border-bottom: 2px solid transparent; transition: all .15s; }
+  .tab.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* Cards */
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; margin-bottom: 12px; }
+  .card-title { font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 10px; }
+
+  /* Grid */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+
+  /* Field display */
+  .field { margin-bottom: 10px; }
+  .field-label { font-size: 11px; color: var(--muted); margin-bottom: 2px; }
+  .field-value { font-size: 13px; font-weight: 500; }
+  .field-null { color: var(--muted); font-style: italic; font-size: 12px; }
+
+  /* Pill list */
+  .pill-list { display: flex; flex-wrap: wrap; gap: 6px; }
+  .pill { background: var(--surface2); border: 1px solid var(--border); border-radius: 20px; padding: 3px 10px; font-size: 12px; }
+  .pill-warn { background: rgba(245,158,11,.1); border-color: rgba(245,158,11,.3); color: var(--yellow); }
+  .pill-success { background: rgba(16,185,129,.1); border-color: rgba(16,185,129,.3); color: var(--green); }
+
+  /* Diff viewer */
+  .diff-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .diff-table th { padding: 8px 12px; text-align: left; color: var(--muted); font-weight: 600; font-size: 11px; border-bottom: 1px solid var(--border); text-transform: uppercase; letter-spacing: .5px; }
+  .diff-table td { padding: 10px 12px; border-bottom: 1px solid rgba(46,49,80,.5); vertical-align: top; }
+  .diff-table tr:hover td { background: rgba(255,255,255,.02); }
+  .diff-field { font-family: 'JetBrains Mono', monospace; color: var(--accent); }
+  .diff-old { color: var(--red); font-family: monospace; font-size: 11px; max-width: 200px; word-break: break-all; }
+  .diff-new { color: var(--green); font-family: monospace; font-size: 11px; max-width: 200px; word-break: break-all; }
+  .diff-type { padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 700; text-transform: uppercase; }
+  .diff-modified { background: rgba(245,158,11,.2); color: var(--yellow); }
+  .diff-added { background: rgba(16,185,129,.2); color: var(--green); }
+  .diff-removed { background: rgba(239,68,68,.2); color: var(--red); }
+
+  /* Code block */
+  .code-block { background: #0d0f1a; border: 1px solid var(--border); border-radius: 8px; padding: 16px; font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 11px; overflow-x: auto; line-height: 1.6; color: #a5b4fc; white-space: pre-wrap; word-break: break-all; max-height: 500px; overflow-y: auto; }
+
+  /* Prompt display */
+  .prompt-block { background: #0d0f1a; border: 1px solid var(--border); border-radius: 8px; padding: 16px; font-family: system-ui; font-size: 12px; line-height: 1.7; color: #cbd5e1; max-height: 600px; overflow-y: auto; white-space: pre-wrap; }
+  .prompt-block h1, .prompt-block h2, .prompt-block h3 { color: var(--accent); margin: 12px 0 6px; }
+
+  /* Alert */
+  .alert { padding: 10px 14px; border-radius: 8px; font-size: 12px; margin-bottom: 12px; border: 1px solid; }
+  .alert-warn { background: rgba(245,158,11,.1); border-color: rgba(245,158,11,.3); color: #fbbf24; }
+  .alert-info { background: rgba(99,102,241,.1); border-color: rgba(99,102,241,.3); color: #a5b4fc; }
+
+  /* Progress bar */
+  .progress-bar { background: var(--surface2); border-radius: 4px; height: 6px; margin-top: 4px; overflow: hidden; }
+  .progress-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--accent), var(--accent2)); transition: width .5s; }
+
+  .version-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .version-col { }
+  .version-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 8px; padding: 4px 10px; border-radius: 4px; display: inline-block; }
+  .version-v1 { background: rgba(245,158,11,.15); color: var(--yellow); }
+  .version-v2 { background: rgba(16,185,129,.15); color: var(--green); }
+
+  @media (max-width: 900px) {
+    .container { grid-template-columns: 1fr; }
+    .sidebar { border-right: none; border-bottom: 1px solid var(--border); max-height: 200px; }
+    .grid2, .grid3 { grid-template-columns: 1fr; }
+    .version-compare { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-icon">🎙️</div>
+    <div>
+      <h1>Clara Answers</h1>
+      <span>Pipeline Dashboard</span>
+    </div>
+  </div>
+  <div class="header-stats">
+    <div class="stat"><div class="stat-val" id="total-count">—</div><div class="stat-label">Accounts</div></div>
+    <div class="stat"><div class="stat-val" id="v1-count">—</div><div class="stat-label">Demo Done</div></div>
+    <div class="stat"><div class="stat-val" id="v2-count">—</div><div class="stat-label">Onboarded</div></div>
+    <div class="stat"><div class="stat-val" id="changes-count">—</div><div class="stat-label">Avg Changes</div></div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="sidebar">
+    <div class="sidebar-title">Accounts</div>
+    <div id="account-list"></div>
+  </div>
+
+  <div class="main" id="main-panel">
+    <div class="empty-state">
+      <div class="empty-icon">📋</div>
+      <div style="font-size:16px;font-weight:600;color:var(--text)">Select an account</div>
+      <div style="font-size:13px">Click an account in the sidebar to view details</div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Data (embedded from outputs) ─────────────────────────────────────────────
+const ACCOUNTS_DATA = __ACCOUNTS_JSON__;
+
+// ── Utils ─────────────────────────────────────────────────────────────────────
+const val = (v) => v != null ? v : '<span class="field-null">not set</span>';
+const escHtml = (s) => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+function pills(arr, type='') {
+  if (!arr || !arr.length) return '<span class="field-null">none</span>';
+  return `<div class="pill-list">${arr.map(i => `<span class="pill ${type}">${escHtml(i)}</span>`).join('')}</div>`;
+}
+
+function fieldRow(label, value) {
+  const display = (value == null || value === '') ? '<span class="field-null">not set</span>' : escHtml(String(value));
+  return `<div class="field"><div class="field-label">${label}</div><div class="field-value">${display}</div></div>`;
+}
+
+// ── Sidebar ───────────────────────────────────────────────────────────────────
+function renderSidebar(accounts) {
+  const list = document.getElementById('account-list');
+  let v1c = 0, v2c = 0;
+  list.innerHTML = accounts.map(acc => {
+    const versions = acc.versions || [];
+    const hasV1 = versions.some(v => v.version === 'v1');
+    const hasV2 = versions.some(v => v.version === 'v2');
+    if (hasV1) v1c++;
+    if (hasV2) v2c++;
+    const name = versions.find(v => v.company_name)?.company_name || acc.account_id;
+    const badges = [
+      hasV1 ? '<span class="badge badge-v1">v1</span>' : '',
+      hasV2 ? '<span class="badge badge-v2">v2</span>' : '',
+      acc.has_changelog ? '<span class="badge badge-v2">changelog</span>' : '',
+    ].filter(Boolean).join('');
+    return `
+      <div class="account-card" onclick="selectAccount('${acc.account_id}')" id="card-${acc.account_id}">
+        <div class="acc-id">${acc.account_id}</div>
+        <div class="acc-name">${escHtml(name)}</div>
+        <div class="acc-badges">${badges}</div>
+      </div>`;
+  }).join('');
+
+  document.getElementById('total-count').textContent = accounts.length;
+  document.getElementById('v1-count').textContent = v1c;
+  document.getElementById('v2-count').textContent = v2c;
+
+  // Avg changes
+  const changeCounts = accounts.filter(a => a.changelog).map(a => a.changelog.total_changes || 0);
+  const avg = changeCounts.length ? Math.round(changeCounts.reduce((a,b)=>a+b,0)/changeCounts.length) : '—';
+  document.getElementById('changes-count').textContent = avg;
+}
+
+// ── Account detail ─────────────────────────────────────────────────────────────
+function selectAccount(accId) {
+  document.querySelectorAll('.account-card').forEach(c => c.classList.remove('active'));
+  document.getElementById(`card-${accId}`)?.classList.add('active');
+
+  const acc = ACCOUNTS_DATA.find(a => a.account_id === accId);
+  if (!acc) return;
+
+  const v1 = acc.v1_memo;
+  const v2 = acc.v2_memo;
+  const spec = acc.v2_spec || acc.v1_spec;
+  const changelog = acc.changelog;
+
+  const panel = document.getElementById('main-panel');
+  panel.innerHTML = `
+    <div style="margin-bottom:20px">
+      <div style="font-size:22px;font-weight:700">${escHtml(v2?.company_name || v1?.company_name || accId)}</div>
+      <div style="color:var(--muted);font-size:13px;margin-top:4px">${accId} · Last updated: ${escHtml((v2||v1)?.extracted_at?.substring(0,10) || '—')}</div>
+    </div>
+
+    <div class="tabs">
+      <div class="tab active" onclick="switchTab(this,'overview')">Overview</div>
+      <div class="tab" onclick="switchTab(this,'memo')">Account Memo</div>
+      <div class="tab" onclick="switchTab(this,'agent')">Agent Spec</div>
+      ${changelog ? '<div class="tab" onclick="switchTab(this,\'diff\')">Diff Viewer</div>' : ''}
+    </div>
+
+    <div class="tab-content active" id="tab-overview">${renderOverview(acc)}</div>
+    <div class="tab-content" id="tab-memo">${renderMemo(v1, v2)}</div>
+    <div class="tab-content" id="tab-agent">${renderAgentSpec(spec)}</div>
+    ${changelog ? `<div class="tab-content" id="tab-diff">${renderDiff(changelog, v1, v2)}</div>` : ''}
+  `;
+}
+
+function switchTab(el, name) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById(`tab-${name}`)?.classList.add('active');
+}
+
+// ── Overview tab ──────────────────────────────────────────────────────────────
+function renderOverview(acc) {
+  const m = acc.v2_memo || acc.v1_memo;
+  if (!m) return '<div class="alert alert-warn">No memo data available for this account.</div>';
+
+  const bh = m.business_hours || {};
+  const er = m.emergency_routing_rules || {};
+  const ctr = m.call_transfer_rules || {};
+  const unknowns = m.questions_or_unknowns || [];
+
+  const pipelineStatus = `
+    <div class="grid2">
+      <div class="card">
+        <div class="card-title">Pipeline Status</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px">
+              <span>Pipeline A (Demo)</span>
+              <span style="color:${acc.v1_memo ? 'var(--green)' : 'var(--muted)'}">
+                ${acc.v1_memo ? '✅ Complete' : '⏳ Pending'}
+              </span>
+            </div>
+            <div class="progress-bar"><div class="progress-fill" style="width:${acc.v1_memo ? '100' : '0'}%"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px">
+              <span>Pipeline B (Onboarding)</span>
+              <span style="color:${acc.v2_memo ? 'var(--green)' : 'var(--yellow)'}">
+                ${acc.v2_memo ? '✅ Complete' : '⏳ Pending'}
+              </span>
+            </div>
+            <div class="progress-bar"><div class="progress-fill" style="width:${acc.v2_memo ? '100' : '0'}%"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px">
+              <span>Changelog</span>
+              <span style="color:${acc.changelog ? 'var(--green)' : 'var(--muted)'}">
+                ${acc.changelog ? `✅ ${acc.changelog.total_changes} changes` : '—'}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Business Hours</div>
+        ${fieldRow('Days', bh.days?.join(', '))}
+        ${fieldRow('Hours', bh.start && bh.end ? `${bh.start} – ${bh.end}` : null)}
+        ${fieldRow('Timezone', bh.timezone)}
+      </div>
+    </div>`;
+
+  const routing = `
+    <div class="grid2">
+      <div class="card">
+        <div class="card-title">Emergency Routing</div>
+        ${fieldRow('Primary Phone', er.primary_phone)}
+        ${fieldRow('Primary Contact', er.primary_contact)}
+        ${fieldRow('Secondary Phone', er.secondary_phone)}
+        ${fieldRow('Secondary Contact', er.secondary_contact)}
+        ${fieldRow('Fallback', er.fallback)}
+      </div>
+      <div class="card">
+        <div class="card-title">Transfer Rules</div>
+        ${fieldRow('Timeout', ctr.timeout_seconds ? `${ctr.timeout_seconds}s` : null)}
+        ${fieldRow('Retries', ctr.retries)}
+        ${fieldRow('Warm Transfer', ctr.warm_transfer != null ? String(ctr.warm_transfer) : null)}
+        ${fieldRow('Address', m.office_address)}
+      </div>
+    </div>`;
+
+  const emerg = `
+    <div class="card">
+      <div class="card-title">Emergency Definitions</div>
+      ${pills(m.emergency_definition)}
+    </div>`;
+
+  const constraints = m.integration_constraints?.length ? `
+    <div class="card">
+      <div class="card-title">Integration Constraints</div>
+      ${pills(m.integration_constraints, 'pill-warn')}
+    </div>` : '';
+
+  const unknownsSection = unknowns.length ? `
+    <div class="alert alert-warn">
+      <strong>⚠️ ${unknowns.length} Open Question(s):</strong>
+      <ul style="margin-top:6px;padding-left:16px">
+        ${unknowns.map(u => `<li style="margin-bottom:4px">${escHtml(u)}</li>`).join('')}
+      </ul>
+    </div>` : `<div class="alert alert-info">✅ No open questions — account fully configured.</div>`;
+
+  return pipelineStatus + routing + emerg + constraints + unknownsSection;
+}
+
+// ── Memo tab ──────────────────────────────────────────────────────────────────
+function renderMemo(v1, v2) {
+  if (!v1 && !v2) return '<div class="alert alert-warn">No memo data.</div>';
+  if (!v2) return `
+    <div class="alert alert-info">Only v1 available (demo-derived preliminary).</div>
+    <div class="code-block">${escHtml(JSON.stringify(v1, null, 2))}</div>`;
+
+  return `
+    <div class="version-compare">
+      <div class="version-col">
+        <div class="version-label version-v1">v1 – Demo (Preliminary)</div>
+        <div class="code-block">${escHtml(JSON.stringify(v1, null, 2))}</div>
+      </div>
+      <div class="version-col">
+        <div class="version-label version-v2">v2 – Onboarding (Confirmed)</div>
+        <div class="code-block">${escHtml(JSON.stringify(v2, null, 2))}</div>
+      </div>
+    </div>`;
+}
+
+// ── Agent spec tab ────────────────────────────────────────────────────────────
+function renderAgentSpec(spec) {
+  if (!spec) return '<div class="alert alert-warn">No agent spec generated yet.</div>';
+  const prompt = spec.system_prompt || '';
+  const meta = {...spec};
+  delete meta.system_prompt;
+
+  return `
+    <div class="card" style="margin-bottom:16px">
+      <div class="card-title">Agent Configuration</div>
+      <div class="grid3">
+        ${fieldRow('Agent Name', spec.agent_name)}
+        ${fieldRow('Version', spec.version)}
+        ${fieldRow('Account ID', spec.account_id)}
+        ${fieldRow('Timezone', spec.key_variables?.timezone)}
+        ${fieldRow('Business Hours', spec.key_variables?.business_hours_start && spec.key_variables?.business_hours_end
+          ? `${spec.key_variables.business_hours_start} – ${spec.key_variables.business_hours_end}` : null)}
+        ${fieldRow('Transfer Timeout', spec.key_variables?.transfer_timeout_seconds ? `${spec.key_variables.transfer_timeout_seconds}s` : null)}
+      </div>
+    </div>
+    <div class="card" style="margin-bottom:16px">
+      <div class="card-title">System Prompt</div>
+      <div class="prompt-block">${escHtml(prompt)}</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Full Spec JSON (for Retell Import)</div>
+      <div class="code-block">${escHtml(JSON.stringify(meta, null, 2))}</div>
+    </div>`;
+}
+
+// ── Diff viewer tab ───────────────────────────────────────────────────────────
+function renderDiff(changelog, v1, v2) {
+  if (!changelog) return '<div class="alert alert-warn">No changelog available.</div>';
+  const changes = changelog.changes || [];
+
+  const typeClass = t => t === 'added' ? 'diff-added' : t === 'removed' ? 'diff-removed' : 'diff-modified';
+
+  const rows = changes.map(c => `
+    <tr>
+      <td class="diff-field">${escHtml(c.field)}</td>
+      <td class="diff-old">${c.old_value != null ? escHtml(JSON.stringify(c.old_value)) : '<em>null</em>'}</td>
+      <td class="diff-new">${c.new_value != null ? escHtml(JSON.stringify(c.new_value)) : '<em>null</em>'}</td>
+      <td><span class="diff-type ${typeClass(c.change_type)}">${c.change_type}</span></td>
+    </tr>`).join('');
+
+  return `
+    <div class="card" style="margin-bottom:16px">
+      <div class="card-title">Change Summary</div>
+      <div class="grid3">
+        ${fieldRow('Total Changes', changelog.total_changes)}
+        ${fieldRow('From', 'v1 (Demo-derived)')}
+        ${fieldRow('To', 'v2 (Onboarding-confirmed)')}
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Field-Level Diff</div>
+      ${changes.length === 0
+        ? '<div class="field-null" style="padding:12px">No changes detected.</div>'
+        : `<table class="diff-table">
+            <thead><tr>
+              <th>Field</th><th>Before (v1)</th><th>After (v2)</th><th>Type</th>
+            </tr></thead>
+            <tbody>${rows}</tbody>
+          </table>`}
+    </div>`;
+}
+
+// ── Init ──────────────────────────────────────────────────────────────────────
+renderSidebar(ACCOUNTS_DATA);
+if (ACCOUNTS_DATA.length > 0) {
+  selectAccount(ACCOUNTS_DATA[0].account_id);
+}
+</script>
+</body>
+</html>

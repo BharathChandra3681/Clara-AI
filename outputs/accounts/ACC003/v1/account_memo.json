@@ -45,7 +45,7 @@
   "office_hours_flow_summary": "Greet caller, understand request, collect name and number, route or transfer as appropriate, confirm next steps, close.",
   "notes": null,
   "extraction_stage": "demo",
-  "extracted_at": "2026-03-05T05:55:40.621297+00:00",
+  "extracted_at": "2026-03-05T07:52:46.415750+00:00",
   "version": "v1",
   "questions_or_unknowns": [
     "Missing: emergency_routing_rules.primary_phone \u2014 not provided in this call",

@@ -1,0 +1,61 @@
+{
+  "account_id": "ACC001",
+  "generated_at": "2026-03-05T05:55:40.600092+00:00",
+  "from_version": "v1",
+  "to_version": "v2",
+  "total_changes": 6,
+  "changes": [
+    {
+      "field": "company_name",
+      "old_value": "Office Manager - Hendricks Fire Protection",
+      "new_value": "Hendricks Fire Protection",
+      "change_type": "modified"
+    },
+    {
+      "field": "emergency_definition",
+      "old_value": [
+        "Sprinkler discharge",
+        "fire alarm"
+      ],
+      "new_value": [
+        "Sprinkler discharge",
+        "fire alarm",
+        "sprinkler discharge",
+        "CO alarm",
+        "carbon monoxide",
+        "kitchen suppression",
+        "smoke without"
+      ],
+      "change_type": "modified"
+    },
+    {
+      "field": "emergency_routing_rules.primary_phone",
+      "old_value": null,
+      "new_value": "214-555-0147",
+      "change_type": "modified"
+    },
+    {
+      "field": "emergency_routing_rules.secondary_phone",
+      "old_value": null,
+      "new_value": "214-555-0193",
+      "change_type": "modified"
+    },
+    {
+      "field": "integration_constraints",
+      "old_value": [],
+      "new_value": [
+        "never create jobs for sprinkler calls",
+        "never create jobs after hours, alarm calls can be auto-created during business hours only",
+        "don't create any jobs after hours",
+        "never auto-create ServiceTrade jobs for sprinkler-related calls, never create jobs after hours, alarm calls can be auto-created during business hours only"
+      ],
+      "change_type": "modified"
+    },
+    {
+      "field": "office_address",
+      "old_value": null,
+      "new_value": "4821 Commerce Street",
+      "change_type": "modified"
+    }
+  ]
+}

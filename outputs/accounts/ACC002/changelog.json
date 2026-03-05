@@ -1,0 +1,64 @@
+{
+  "account_id": "ACC002",
+  "generated_at": "2026-03-05T05:55:40.619632+00:00",
+  "from_version": "v1",
+  "to_version": "v2",
+  "total_changes": 7,
+  "changes": [
+    {
+      "field": "company_name",
+      "old_value": "Owner - ArcticPro HVAC Services",
+      "new_value": "ArcticPro HVAC Services",
+      "change_type": "modified"
+    },
+    {
+      "field": "emergency_definition",
+      "old_value": [
+        "Carbon monoxide",
+        "system failure"
+      ],
+      "new_value": [
+        "Carbon monoxide",
+        "system failure",
+        "CO alarm",
+        "active water"
+      ],
+      "change_type": "modified"
+    },
+    {
+      "field": "emergency_routing_rules.primary_contact",
+      "old_value": null,
+      "new_value": "Tony Reyes",
+      "change_type": "modified"
+    },
+    {
+      "field": "emergency_routing_rules.primary_phone",
+      "old_value": null,
+      "new_value": "602-555-0214",
+      "change_type": "modified"
+    },
+    {
+      "field": "emergency_routing_rules.secondary_contact",
+      "old_value": null,
+      "new_value": "Marcus Webb",
+      "change_type": "modified"
+    },
+    {
+      "field": "emergency_routing_rules.secondary_phone",
+      "old_value": null,
+      "new_value": "602-555-0388",
+      "change_type": "modified"
+    },
+    {
+      "field": "integration_constraints",
+      "old_value": [
+        "Don't create a duplicate"
+      ],
+      "new_value": [
+        "Don't create a duplicate",
+        "Do not create a new job record during the call, we do that manually"
+      ],
+      "change_type": "modified"
+    }
+  ]
+}

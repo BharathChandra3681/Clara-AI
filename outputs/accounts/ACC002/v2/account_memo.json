@@ -1,0 +1,65 @@
+{
+  "account_id": "ACC002",
+  "company_name": "ArcticPro HVAC Services",
+  "business_hours": {
+    "days": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "start": "8:00",
+    "end": "6:00",
+    "timezone": "America/Denver"
+  },
+  "office_address": null,
+  "services_supported": [
+    "hvac",
+    "installation",
+    "maintenance",
+    "repairs"
+  ],
+  "emergency_definition": [
+    "Carbon monoxide",
+    "system failure",
+    "CO alarm",
+    "active water"
+  ],
+  "emergency_routing_rules": {
+    "primary_contact": "Tony Reyes",
+    "primary_phone": "602-555-0214",
+    "secondary_contact": "Marcus Webb",
+    "secondary_phone": "602-555-0388",
+    "order": [],
+    "fallback": null
+  },
+  "non_emergency_routing_rules": {
+    "during_hours": "route to available staff",
+    "after_hours": "collect name, number, issue description and confirm callback next business day",
+    "voicemail_allowed": false
+  },
+  "call_transfer_rules": {
+    "timeout_seconds": null,
+    "retries": 1,
+    "transfer_fail_message": null,
+    "warm_transfer": null
+  },
+  "integration_constraints": [
+    "Don't create a duplicate",
+    "Do not create a new job record during the call, we do that manually"
+  ],
+  "after_hours_flow_summary": "Greet caller, identify if emergency. If emergency: collect name, phone, address immediately, attempt transfer, assure follow-up if fails. If non-emergency: collect contact info and confirm callback next business day.",
+  "office_hours_flow_summary": "Greet caller, understand request, collect name and number, route or transfer as appropriate, confirm next steps, close.",
+  "notes": null,
+  "extraction_stage": "onboarding",
+  "extracted_at": "2026-03-05T05:55:40.618853+00:00",
+  "version": "v2",
+  "questions_or_unknowns": [
+    "Missing: emergency_routing_rules.primary_phone \u2014 not provided in this call",
+    "Missing: call_transfer_rules.timeout_seconds \u2014 not provided in this call",
+    "Caller indicated uncertainty: 'call guys, Tony and Marcus. I rotate them week by week. But I don't have their numbers committed to memory right now.'"
+  ]
+}

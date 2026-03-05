@@ -1,0 +1,73 @@
+{
+  "account_id": "ACC001",
+  "company_name": "Hendricks Fire Protection",
+  "business_hours": {
+    "days": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "start": "7:00",
+    "end": "5:00",
+    "timezone": "America/Chicago"
+  },
+  "office_address": "4821 Commerce Street",
+  "services_supported": [
+    "fire suppression",
+    "sprinkler systems",
+    "alarm systems",
+    "fire protection",
+    "inspection",
+    "fire alarm",
+    "suppression"
+  ],
+  "emergency_definition": [
+    "Sprinkler discharge",
+    "fire alarm",
+    "sprinkler discharge",
+    "CO alarm",
+    "carbon monoxide",
+    "kitchen suppression",
+    "smoke without"
+  ],
+  "emergency_routing_rules": {
+    "primary_contact": null,
+    "primary_phone": "214-555-0147",
+    "secondary_contact": null,
+    "secondary_phone": "214-555-0193",
+    "order": [],
+    "fallback": null
+  },
+  "non_emergency_routing_rules": {
+    "during_hours": "route to available staff",
+    "after_hours": "collect name, number, issue description and confirm callback next business day",
+    "voicemail_allowed": true
+  },
+  "call_transfer_rules": {
+    "timeout_seconds": null,
+    "retries": 1,
+    "transfer_fail_message": null,
+    "warm_transfer": null
+  },
+  "integration_constraints": [
+    "never create jobs for sprinkler calls",
+    "never create jobs after hours, alarm calls can be auto-created during business hours only",
+    "don't create any jobs after hours",
+    "never auto-create ServiceTrade jobs for sprinkler-related calls, never create jobs after hours, alarm calls can be auto-created during business hours only"
+  ],
+  "after_hours_flow_summary": "Greet caller, identify if emergency. If emergency: collect name, phone, address immediately, attempt transfer, assure follow-up if fails. If non-emergency: collect contact info and confirm callback next business day.",
+  "office_hours_flow_summary": "Greet caller, understand request, collect name and number, route or transfer as appropriate, confirm next steps, close.",
+  "notes": null,
+  "extraction_stage": "onboarding",
+  "extracted_at": "2026-03-05T05:55:40.598738+00:00",
+  "version": "v2",
+  "questions_or_unknowns": [
+    "Missing: emergency_routing_rules.primary_phone \u2014 not provided in this call",
+    "Missing: call_transfer_rules.timeout_seconds \u2014 not provided in this call",
+    "Caller indicated uncertainty: 'Mike: We use a shared on-call cell. I don't have that number in front of me right now though.'",
+    "Caller indicated uncertainty: 'ys have complained about duplicate jobs getting created but I don't know the details.'",
+    "Caller indicated uncertainty: 'Mike: Honestly we haven't thought that through yet. I know some of our guys have complained about duplicat'"
+  ]
+}

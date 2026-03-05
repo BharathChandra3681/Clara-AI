@@ -1,0 +1,41 @@
+{
+  "account_id": "ACC004",
+  "generated_at": "2026-03-05T05:55:40.654317+00:00",
+  "from_version": "v1",
+  "to_version": "v2",
+  "total_changes": 5,
+  "changes": [
+    {
+      "field": "company_name",
+      "old_value": "General Manager - ShieldGuard Alarm Systems",
+      "new_value": "ShieldGuard Alarm Systems",
+      "change_type": "modified"
+    },
+    {
+      "field": "emergency_definition",
+      "old_value": [],
+      "new_value": [
+        "active crime"
+      ],
+      "change_type": "modified"
+    },
+    {
+      "field": "emergency_routing_rules.primary_contact",
+      "old_value": null,
+      "new_value": "Onboarding Specialist",
+      "change_type": "modified"
+    },
+    {
+      "field": "emergency_routing_rules.primary_phone",
+      "old_value": null,
+      "new_value": "404-555-0312",
+      "change_type": "modified"
+    },
+    {
+      "field": "emergency_routing_rules.secondary_phone",
+      "old_value": null,
+      "new_value": "404-555-0189",
+      "change_type": "modified"
+    }
+  ]
+}

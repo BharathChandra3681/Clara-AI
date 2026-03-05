@@ -1,0 +1,62 @@
+{
+  "account_id": "ACC005",
+  "generated_at": "2026-03-05T05:55:40.671204+00:00",
+  "from_version": "v1",
+  "to_version": "v2",
+  "total_changes": 6,
+  "changes": [
+    {
+      "field": "company_name",
+      "old_value": "Owner - Sternfeld Mechanical",
+      "new_value": "Sternfeld Mechanical",
+      "change_type": "modified"
+    },
+    {
+      "field": "emergency_definition",
+      "old_value": [
+        "Gas leak",
+        "Active water",
+        "Boiler failure",
+        "Sewage backup"
+      ],
+      "new_value": [
+        "Gas leak",
+        "Active water",
+        "Boiler failure",
+        "Sewage backup",
+        "water main break",
+        "boiler failure",
+        "sewage backup",
+        "pipe burst"
+      ],
+      "change_type": "modified"
+    },
+    {
+      "field": "emergency_routing_rules.primary_contact",
+      "old_value": null,
+      "new_value": "Eddie Garza",
+      "change_type": "modified"
+    },
+    {
+      "field": "emergency_routing_rules.primary_phone",
+      "old_value": null,
+      "new_value": "720-555-0416",
+      "change_type": "modified"
+    },
+    {
+      "field": "emergency_routing_rules.secondary_phone",
+      "old_value": null,
+      "new_value": "720-555-0288",
+      "change_type": "modified"
+    },
+    {
+      "field": "integration_constraints",
+      "old_value": [],
+      "new_value": [
+        "never create job records in ServiceTrade",
+        "no job creation under any circumstance"
+      ],
+      "change_type": "modified"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "account_id": "ACC003",
+  "generated_at": "2026-03-05T05:55:40.635965+00:00",
+  "from_version": "v1",
+  "to_version": "v2",
+  "total_changes": 7,
+  "changes": [
+    {
+      "field": "business_hours.start",
+      "old_value": "9:00",
+      "new_value": "8:00",
+      "change_type": "modified"
+    },
+    {
+      "field": "company_name",
+      "old_value": "Operations Manager - Voltline Electrical Contractors",
+      "new_value": "Voltline Electrical Contractors",
+      "change_type": "modified"
+    },
+    {
+      "field": "emergency_definition",
+      "old_value": [
+        "Power outage"
+      ],
+      "new_value": [
+        "Power outage",
+        "power outage"
+      ],
+      "change_type": "modified"
+    },
+    {
+      "field": "emergency_routing_rules.primary_contact",
+      "old_value": null,
+      "new_value": "After Carlos",
+      "change_type": "modified"
+    },
+    {
+      "field": "emergency_routing_rules.primary_phone",
+      "old_value": null,
+      "new_value": "312-555-0277",
+      "change_type": "modified"
+    },
+    {
+      "field": "emergency_routing_rules.secondary_phone",
+      "old_value": null,
+      "new_value": "312-555-0348",
+      "change_type": "modified"
+    },
+    {
+      "field": "office_address",
+      "old_value": null,
+      "new_value": "2200 West Diversey Avenue",
+      "change_type": "modified"
+    }
+  ]
+}

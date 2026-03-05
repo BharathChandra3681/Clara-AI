@@ -2,7 +2,7 @@
 extract_account_memo.py
 -----------------------
 Pipeline A & B: Extracts structured Account Memo JSON from a call transcript.
-Uses Anthropic API (free via claude.ai context) or falls back to rule-based extraction.
+Uses Google Gemini API (free tier) or falls back to rule-based extraction.
 Zero-cost: Uses only free-tier API access.
 
 Usage:
@@ -18,7 +18,6 @@ import json
 import os
 import re
 import sys
-import hashlib
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -138,10 +137,8 @@ def call_llm(system_prompt: str, user_prompt: str) -> str:
     api_key = os.environ.get("GEMINI_API_KEY", "")
     if not api_key:
         raise EnvironmentError(
-            "GEMINI_API_KEY not set.
-"
-            "Get a free key at: https://aistudio.google.com/apikey
-"
+            "GEMINI_API_KEY not set. "
+            "Get a free key at: https://aistudio.google.com/apikey "
             "Then run: export GEMINI_API_KEY=your_key_here"
         )
 
@@ -149,9 +146,7 @@ def call_llm(system_prompt: str, user_prompt: str) -> str:
     url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={api_key}"
     payload = {
         "contents": [
-            {"parts": [{"text": f"{system_prompt}
-
-{user_prompt}"}]}
+            {"parts": [{"text": system_prompt + "\n\n" + user_prompt}]}
         ],
         "generationConfig": {
             "temperature": 0.1,
@@ -272,7 +267,7 @@ def main():
     if args.stage == "demo":
         memo = extract_demo(transcript, args.account_id)
         save_memo(memo, args.account_id, "v1")
-        print(f"\n✅ Demo extraction complete for {args.account_id}")
+        print(f"\nDemo extraction complete for {args.account_id}")
 
     elif args.stage == "onboarding":
         if not args.existing_memo:
@@ -282,7 +277,7 @@ def main():
         updated_memo, changes = extract_onboarding_patch(transcript, args.account_id, existing)
         save_memo(updated_memo, args.account_id, "v2")
         save_changelog(changes, args.account_id)
-        print(f"\n✅ Onboarding patch complete for {args.account_id} ({len(changes)} changes)")
+        print(f"\nOnboarding patch complete for {args.account_id} ({len(changes)} changes)")
 
 
 if __name__ == "__main__":
